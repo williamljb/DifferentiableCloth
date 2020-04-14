@@ -40,13 +40,20 @@ using torch::Tensor;
 #include <iostream>
 
 const torch::TensorOptions TNOPT = torch::dtype(torch::kF64);
-const Tensor EYE3=torch::eye(3,TNOPT);
-const Tensor TRU=torch::ones({}, torch::dtype(torch::kU8));
-const Tensor ONE=torch::ones({}, TNOPT);
-const Tensor ZERO=torch::zeros({}, TNOPT);
-const Tensor ZERO3=torch::zeros({3}, TNOPT);
-const Tensor ZERO33=torch::zeros({3,3}, TNOPT);
-const Tensor infinity = std::numeric_limits<double>::infinity()*ONE;
+// const Tensor EYE3=torch::eye(3,TNOPT);
+// const Tensor TRU=torch::ones({}, torch::dtype(torch::kU8));
+// const Tensor ONE=torch::ones({}, TNOPT);
+// const Tensor ZERO=torch::zeros({}, TNOPT);
+// const Tensor ZERO3=torch::zeros({3}, TNOPT);
+// const Tensor ZERO33=torch::zeros({3,3}, TNOPT);
+// const Tensor infinity = std::numeric_limits<double>::infinity()*ONE;
+#define EYE3 (torch::eye(3,TNOPT))
+#define TRU (torch::ones({}, torch::dtype(torch::kU8)))
+#define ONE (torch::ones({}, TNOPT))
+#define ZERO (torch::zeros({}, TNOPT))
+#define ZERO3 (torch::zeros({3}, TNOPT))
+#define ZERO33 (torch::zeros({3,3}, TNOPT))
+#define infinity (std::numeric_limits<double>::infinity()*ONE)
 
 inline Tensor perp (const Tensor &u) {return torch::stack({-u[1],u[0]});}
 
